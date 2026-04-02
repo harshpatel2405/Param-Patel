@@ -1,0 +1,88 @@
+a = 7       -> instruction 1
+b = 6       -> instruction 2
+c = a + b   -> instruction 3
+
+instruction 1 + instruction 2 + instruction 3
+
+program p1 - set of instructions
+program p2 - set of instructions
+program p3 - set of instructions
+
+p1 + p2 + p3
+software - set of programs 
+
+Zoom - audio program + video program + chat program + participant program + .........
+Programming / coding  -> to make softwares
+
+<====================================================================================>
+software
+--------
+Types of Software 
+        a. System Software
+            which will be controlling / managing your whole system
+                OS (Operating system)
+                drivers 
+                Languages 
+                    I. Structured Language
+                        all can understand 
+                        Gujarati , Hindi , English
+
+                    II. High Level Language
+                        which will known to developers 
+                        C , CPP , HTML , PYTHON , JAVA
+
+                    III. Machine / Binary Language 
+                        which computer will understand
+                        0 and 1
+
+                        Harsh (0 and 1) ?
+                        ASCII - American Standard Code for Information Interchange 
+
+                        a - 97 - 1100001
+
+                        2 | 97
+                        2 | 48    1
+                        2 | 24    0
+                        2 | 12    0
+                        2 | 6     0
+                        2 | 3     0
+                        2 | 1     1
+                         
+                Translators 
+                    Compiler       will check all code at once
+                    Interpreter    will check line by line 
+                    Assembler      will be used for assembly lanaguage
+
+            it will be made using many Languages
+
+        b. Application Software
+            they are meant for specific purpose
+                Meeting          -   Zoom 
+                Tickets          -   Book My Show 
+                train            -   Make My Trip
+                Chat             -   Whatsapp
+                Videos           -   Youtube 
+                Social Media     -   Instagram 
+
+            it will be made using 2-3 Languages
+
+        c. Utility Software
+            3D Side 
+            Hardware - software 
+
+            CAD - Computer Aided Design
+            CAM - Computer Aided Manufacturing 
+
+
+Languages
+
+
+
+HW 
+--
+1. Write your complete name in Binary 
+    P 
+    a 
+    r 
+    a 
+    m

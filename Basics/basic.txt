@@ -72,12 +72,32 @@ Types of Software
 
             CAD - Computer Aided Design
             CAM - Computer Aided Manufacturing 
+<========================================================================================>
+Algorithm 
+---------
+Step by step solution of a problem / Question
+
+Task : Add two numbers
+
+step 1 : start
+step 2 : decalre variables a , b and c
+step 3 : input a and b from user 
+step 4 : c = a + b
+step 5 : print c
+step 6 : end 
 
 
-Languages
+Flowchart
+---------
+Visual Representation of Algorithm 
 
+Start / end -> oval 
+input / output -> parallelogram 
+process -> rectangle 
+condition - diamond 
+Flow -> arrowsFlowchart
 
-
+<========================================================================================>
 HW 
 --
 1. Write your complete name in Binary 
@@ -86,3 +106,6 @@ HW
     r 
     a 
     m
+
+2. Make an algorithm to subtract two numbers and print sqaure of the ans 
+<========================================================================================>

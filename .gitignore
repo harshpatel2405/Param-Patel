@@ -3,6 +3,7 @@
 *.exe
 *.o
 *.a
+tempCodeRunnerFile.c
 
 # Debug files
 *.dSYM/
@@ -15,3 +16,4 @@
 
 # Build folders
 build/
+.gitignore

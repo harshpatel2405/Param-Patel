@@ -30,3 +30,29 @@
 
 6.  A	a    B    b
     C	c    D	  d
+
+<======================================================>
+1. Take cm and convert to:
+   meters
+   millimeters
+
+INPUT : 10
+OUTPUT : 
+       meters : 0.1
+       millimeters : 100
+
+2. Find volume of sphere
+    4 / 3 * pi * r * r * h;
+
+3. Find volume of cuboid 
+    length * breadth * height
+
+4. make this student Report Card
++--------------------------+
+|      STUDENT ID CARD     | 
+| Age    : 18              |
+| Class  : 13              |
+| Roll   : 23              |
++--------------------------+
+
+<==================================================>

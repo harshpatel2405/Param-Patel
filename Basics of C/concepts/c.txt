@@ -167,3 +167,15 @@ enum, struct, typedef, union
 
 Qualifiers & Others:
 const, sizeof, volatile
+
+<==========================================================>
+printf
+Datatype 
+format specifiers 
+variables 
+escape sequence
+<==========================================================>
+Taking input from user 
+Scanf 
+<==========================================================>
+

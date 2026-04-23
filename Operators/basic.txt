@@ -1,0 +1,97 @@
+Operators 
+---------
+Something which performs operations
+
+a                    +                  b
+operand1             operatror          operand2
+
+++         a
+operator   operand
+
+*******************************************************************
+*Types on basis of number of operands*
+--------------------------------------
+1. Unary Operator -- only single operand 
+    . Logical NOT 
+    . Increment
+    . Decrement
+
+2. Binary Operator -- two operands
+    . Arithmetic Operators        +    -    *    /    &
+    . Relational Operators        <    >    <=    >=    ==    != 
+    . Assignment Operatos         =    +=    -=    *=    /=    %=
+    . Logical Operator            AND(&&)    OR(||)
+    . Bitwise Operator            &    |    ^    >>    <<
+
+3. Ternary Operator  -- three operands
+    used to check mini conditions
+    (condition) ? "True" : "False";
+
+*********************************************************************
+*Types of Operators*
+--------------------
+1. Arithmetic Operator
+    . +
+    . -
+    . *
+    . /    10 / 3 = 3     10 / 3.0 = 3.3333    (int / int  =  int)
+    . %    only works on int    10 % 4    10.5 % 4 X
+
+2. Relational Operator (conditions) (0 - false and 1 - non zero)
+    . <       5 < 6 - 1        7 < 6 - 0       6 < 6 - 0
+    . >       5 > 6 - 0        7 > 6 - 1       6 > 6 - 0
+    . <=      5 <= 6 - 1       7 <= 6 - 0      6 <= 6 - 1
+    . >=      5 >= 6 - 0       7 >= 6 - 1      6 >= 6 - 1
+    . ==      5 == 6 - 0       7 == 7 - 1
+    . !=      5 != 6 - 1       7 != 7 - 0
+
+3. Assignment Operator (Loop)
+    . =   (Assignment Operator which assigns value from right to left)
+    . +=  sum += i;    -->    sum = sum + i;
+    . -=
+    . *=
+    . /=
+    . %=
+
+4. Logical Operator (used to check multiple conditions)
+    . &&  (returns true when both the conditions are true )
+        -5 && 6
+         1 && 1 -> 1
+
+    . ||  (returns true when any of the conditions are true )
+    . !   (true -> false , false -> true)
+
+5. Bitwise Operator
+    . &
+    . |
+    . ^
+    . >>
+    . <<
+
+6. Increment / Decrement (pre / post)
+    . ++ -> increase by 1
+        count++  -> count = count + 1;
+
+    . -- -> deacrese by 1
+        count-- -> count = count - 1;
+
+
+    . post
+        -> first done and complete the task assigned and then updates 
+        a = 15;
+        c = 5 + a++; // 5 + 15
+        printf("A : %d", a); // 16
+        printf("C : %d", c); // 20
+
+    .pre 
+        -> first updates and then does the assigned tasks
+        a = 15;
+        c = 5 + ++a; // 5 + 16
+        printf("A : %d", a); // 16
+        printf("C : %d", c); // 21
+
+
+
+7. Special Operator
+    . sizeof() -> returns size of datatype / variable in bytes 
+    . &        -> ampersand (address of)

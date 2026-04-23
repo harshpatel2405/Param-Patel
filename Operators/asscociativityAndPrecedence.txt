@@ -1,0 +1,23 @@
+Precedence -> priority 
+
+Associativity -> same priortiy 
+
+---------------------------------------------------------------------------------------------------------------------------
+| Level (High → Low) | Operators                                   | Description                          | Associativity |
+|--------------------|---------------------------------------------|--------------------------------------|---------------|
+| 1 (Highest)        | ()  []  ->  .  ++  --                       | Postfix operators                    | Left to Right |
+| 2                  | +  -  ++  --  !  ~  (type)  *  &  sizeof    | Unary operators                      | Right to Left |
+| 3                  | *  /  %                                     | Multiplication, Division, Modulus    | Left to Right |
+| 4                  | +  -                                        | Addition, Subtraction                | Left to Right |
+| 5                  | <<  >>                                      | Bitwise Shift                        | Left to Right |
+| 6                  | <  <=  >  >=                                | Relational                           | Left to Right |
+| 7                  | ==  !=                                      | Equality                             | Left to Right |
+| 8                  | &                                           | Bitwise AND                          | Left to Right |
+| 9                  | ^                                           | Bitwise XOR                          | Left to Right |
+| 10                 | |                                           | Bitwise OR                           | Left to Right |
+| 11                 | &&                                          | Logical AND                          | Left to Right |
+| 12                 | ||                                          | Logical OR                           | Left to Right |
+| 13                 | ?:                                          | Conditional (ternary)                | Right to Left |
+| 14                 | =  +=  -=  *=  /=  %=  <<=  >>=  &=  ^=  |= | Assignment operators                 | Right to Left |
+| 15 (Lowest)        | ,                                           | Comma operator                       | Left to Right |
+---------------------------------------------------------------------------------------------------------------------------

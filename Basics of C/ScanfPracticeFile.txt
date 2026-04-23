@@ -1,0 +1,11 @@
+1. Input two integers and print their sum and product.
+2. Ask the user for principal, rate, and time. Print Simple Interest.
+3. Input temperature in Celsius. Convert to Fahrenheit.
+4. Input 5 subject marks. Calculate total, average, and percentage.
+5. Input mass and acceleration → calculate force (F = m * a).
+6. Input base and height → calculate area of parallelogram.
+7. Input radius and height → calculate volume of cone.
+8. Input time in format HH:MM and print hours and minutes separately.
+9. Input a date in format DD-MM-YYYY and print day, month, year separately.
+10. Swapping two variables with using third variables
+11. Swapping two variables without using third variables

@@ -1,0 +1,45 @@
+1. Conditionals 
+    a. if..else
+          I. if
+
+            if(condition) // if condition is true , then only logic of if block gets executed
+            {
+                // logic  - print, scan ,assign
+            }
+
+         II. if..else 
+
+            if(condition) // if condition is true , then only logic of if block gets executed
+            {
+                // logic  - print, scan ,assign
+            }
+            else         // executed when condition inside if is false
+            {
+                // logic
+            }
+
+        III. else if ladder (else if)
+
+            if(condition)     // if condition is true , then only logic of if block gets executed
+            {
+                // logic  - print, scan ,assign
+            }
+            else if(condition) // executed when above if gets failed
+            {
+                // logic
+            }   
+            else if(condition) // executed when above else if gets failed
+            {
+                // logic
+            }
+            else             // executed when condition all above ladder does not executed
+            {
+                // logic
+            } // optional
+
+         IV. nested if..else
+
+    b. switch..case 
+    c. ternary operator 
+
+2. Loops 

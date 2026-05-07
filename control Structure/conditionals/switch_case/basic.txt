@@ -1,0 +1,21 @@
+Switch_case 
+-----------
+
+if   switch_case 
+
+condition  ::  if_else 
+variable   ::  switch_case
+
+choice - 5,6,7
+
+switch(choice)
+{
+    case 5 : // logic 
+             break;
+    case 6 : // logic 
+             break;
+    case 7 : // logic 
+             break;
+    default : // logic
+             break; 
+}

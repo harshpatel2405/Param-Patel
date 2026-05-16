@@ -17,5 +17,14 @@ int main()
     int max = (p > q) ? ((p > r) ? p : r) : ((q > r) ? q : r);
     printf("\n%d is max", max);
 
+    int num;
+    printf("\nEnter a number : ");
+    scanf("%d", &num);
+
+    num % 2 == 0 ? printf("Even") : printf("Odd");
+
+    
+    printf("\n%s",num % 2 != 0 ? "Odd" : "Even");
+
     return 0;
 }

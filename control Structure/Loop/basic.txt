@@ -1,0 +1,47 @@
+Loops
+-----
+do repetitive tasks 
+
+if   no condition / ending limit is not provided then program will go for infinity
+else till the condition
+
+loop moves from 1 to 20 (total 20 times) -> 20 iteration
+
+*Workflow*
+1. Initialisation               only once 
+2. Condition                    till the condition gets false 
+3. Operational Part/logic       till the condition is true 
+4. Inc/dec                      till the condition is true
+
+*Types*
+1. Entry Controlled Loop  (min : 0)
+    -> checks condition -> true -> executes logic
+                        -> false -> gets out of the loop 
+
+    a. For Loop 
+    for(Initialisation; condition; inc/dec)
+    {
+        // logic 
+    }
+
+    b. while Loop 
+
+    Initialisation;
+    while(condition)
+    {
+        // logic 
+        // inc/dec 
+    }
+
+2. Exit Controlled Loop (min : 1)
+    -> executes logic -> checks condition -> true -> loop iterate again
+                                          -> false -> gets out of the loop
+                                          
+    a. do_while loop
+
+    Initialisation;
+    do
+    {
+        // logic 
+        // inc/dec 
+    }while(condition);

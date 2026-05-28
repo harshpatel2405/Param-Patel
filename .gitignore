@@ -3,6 +3,7 @@
 *.exe
 *.o
 *.a
+*.md
 tempCodeRunnerFile.c
 
 # Debug files

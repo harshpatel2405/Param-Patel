@@ -1,0 +1,28 @@
+Digits
+
+1234 -> 4 Digits
+
+4  3   2   1
+
+1234 / 10 = 123   4
+123 / 10 = 12     3
+12 / 10 = 1       2
+1 / 10 = 0        1
+0 / 10 = 0
+0 / 10 = 0
+0 / 10 = 0
+0 / 10 = 0
+
+
+1. print 
+2. count 
+3. sum
+4. multiplication 
+5. odd_even
+7. reverse 
+
+8. palindrome 
+9. armstrong 
+10. strong 
+11. harshad number 
+12. spy number

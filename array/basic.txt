@@ -1,0 +1,116 @@
+ARRAY (Derived Data Type)
+=========================
+
+Why Array?
+----------
+
+Suppose we need to store marks of 10 students.
+
+Without Array:
+int marks1, marks2, marks3, marks4, marks5;
+int marks6, marks7, marks8, marks9, marks10;
+
+We need 10 different variables.
+
+
+With Array:
+int marks[10];
+
+Only one variable is used to store marks of 10 students.
+
+
+Definition
+----------
+
+Array is a derived data type that stores a collection of elements of the
+same data type in contiguous memory locations.
+
+
+Example:
+int marks[10];
+
+Here, marks can store 10 integer values.
+
+
+Syntax
+------
+
+Declaration:
+
+data_type array_name[size];
+
+Examples:
+
+int arr[5];
+float salary[10];
+char name[20];
+
+
+Array Index
+-----------
+
+Array indexing starts from 0.
+
+Index:
+
+   0      1      2      3      4
+-----------------------------------
+| 10 |   20 |   30 |   40 |   50 |
+-----------------------------------
+ 100    104    108    112   116       continous location       
+            arr
+
+Size = 5
+First Index = 0
+Last Index = Size - 1 = 4
+
+
+Accessing Elements
+------------------
+
+Syntax:
+
+array_name[index];
+
+Example:
+
+arr[0];   // 10
+arr[1];   // 20
+arr[2];   // 30
+arr[3];   // 40
+arr[4];   // 50
+
+To access 40:
+
+arr[3];
+
+
+Initialization
+--------------
+
+int arr[5] = {10, 20, 30, 40, 50};
+
+OR
+
+int arr[] = {10, 20, 30, 40, 50};
+
+
+Advantages of Array
+-------------------
+
+1. Stores multiple values using a single variable.
+2. Easy to access elements using indexes.
+3. Reduces code complexity.
+4. Efficient memory management.
+5. Useful for sorting and searching operations.
+
+
+Key Points
+----------
+
+* Array is a derived data type.
+* Stores elements of the same data type.
+* Index starts from 0.
+* Elements are stored in contiguous memory locations.
+* Last index = Size - 1.
+* Array size is fixed after declaration.

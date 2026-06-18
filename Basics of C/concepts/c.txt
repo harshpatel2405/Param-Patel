@@ -117,7 +117,7 @@ Types of Data Types:
    int, float, char, double, short, long, signed, unsigned
 
 2. Derived (Based on Primitive)
-   array, pointer, function
+   array, function, pointer
 
 3. User Defined (Custom)
    structure, union, enum

@@ -23,4 +23,11 @@
 1 2 3 
 1 2 3 4 
 1 2 3 4 5
+
+Topics : printf , scanf , operators , if_else , switch_case , ternary, loop , nested loop , patterns
+
+Theory based mcq + predict the output 
+true or false 
+fill in the blanks 
+Coding qusestion
 */

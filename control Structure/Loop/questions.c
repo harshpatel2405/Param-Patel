@@ -1,0 +1,10 @@
+Armstrong number 
+Palindrome number
+krishnamurthy number 
+evil number 
+spy number 
+harshad number
+Magic Number
+Happy Number
+Disarium Number
+Automorphic Number

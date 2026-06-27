@@ -17,4 +17,6 @@ tempCodeRunnerFile.c
 https://github.com/paramf4-coder/c-language-homework.git
 # Build folders
 build/
+*.class
+*.java
 .gitignore

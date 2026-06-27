@@ -1,0 +1,15 @@
+1. Find the largest element in an array.
+2. Find the smallest element in an array
+3. Find the average of all elements of an array.
+4. Search whether a given number exists in the array.
+5. Count occurrences of a given number.
+6. Find the index of a given element.
+7. Count how many numbers are divisible by 5.
+8. Count how many numbers are divisible by 5 and 7
+9. Insert an element at the end.
+10. Insert an element at the beginning.
+11. Insert an element at a given position.
+12. Delete the first occurrence of an element.
+13. Delete all occurrences of an element.
+14. Remove duplicate elements.
+15. Replace every even number with 0

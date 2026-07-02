@@ -13,3 +13,4 @@
 13. Delete all occurrences of an element.
 14. Remove duplicate elements.
 15. Replace every even number with 0
+

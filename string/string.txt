@@ -1,0 +1,33 @@
+string
+------
+sequence of characters 
+array of characters
+
+int marks[10]; --> 10 int values 
+char name[20]; --> 10 characters
+
+char name[] = {'p','a','r','a','m'}
+
+last character => '\0' -> null character  --> it tells that string is over at this point 
+
+%s
+
+
+%c%c%c%c%
+%s
+
+char name2[] = "Harsh Patel";  // allowed at time of initialization
+name2 = "Shyam"; // not allowed 
+<=====================================================================>
+1. strlen 
+--> Returns length of the string 
+--> checks till the last character becomes '\0'
+
+2. strupr 
+--> converts string into uppercase
+
+3. strlwr 
+--> converts string into lowercase
+
+4. strcpy
+--> copies one string into another

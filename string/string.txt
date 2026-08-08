@@ -31,3 +31,9 @@ name2 = "Shyam"; // not allowed
 
 4. strcpy
 --> copies one string into another
+
+5. strrev
+--> reverse string
+
+6. strcat
+--> concates two string

@@ -2,3 +2,33 @@ Code written in lec
 Topic Tasks 
 
 Practice Tasks -- revision
+
+<================================================================================>
+08/08/2026
+----------
+String Functions -- class work 
+Tasks : 
+1. Find String Length  -- Input a string and find its length without using strlen().
+2. Count Vowels -- Count the number of vowels in a string.
+3. Count Spaces -- Count the number of spaces in a sentence.
+4. Convert Lowercase to Uppercase
+5. Convert all lowercase letters to uppercase without using strupr().
+
+
+revision
+--------
+1. Enter your bank balance: 
+	If ≥ ₹5000, print "Sufficient Balance"
+	Else print "Low Balance Warning"
+
+2. Input marks of two subjects: 
+	If both ≥ 40 → "Passed both" 
+	Else → "Failed in one or both"
+
+3. Enter number of working days and days present; calculate attendance %:
+	≥ 90% → Excellent
+	75–89% → Good
+	50–74% → Average
+	< 50% → Poor
+
+<========================================================>

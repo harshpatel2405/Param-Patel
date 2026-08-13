@@ -1,0 +1,25 @@
+Function
+--------
+a block of code which can be used again and again 
+
+1. Function Declaration 
+2. Function Definition 
+3. Function Calling
+
+int main()
+
+int - return type 
+main -> function name 
+
+1. without return type wihout args 
+2. without return type with args 
+3. with return type without args 
+4. with rerturn type with args
+
+
+args       -> input to function 
+returnType -> output from function 
+
+void                        -> no return type
+int , float , char , double -> return type
+

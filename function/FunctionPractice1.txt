@@ -1,0 +1,21 @@
+--------------------------------
+1) WITHOUT RETURN, WITHOUT ARGUMENT
+--------------------------------
+1. Print your name.  
+2. Print "Hello, World!" 10 times.  
+3. Print first 10 natural numbers.  
+4. Display multiplication table of 5.  
+5. Print all even numbers between 1 and 50.  
+6. Print sum of first 100 natural numbers.  
+7. Print squares of numbers from 1 to 10.  
+
+--------------------------------
+2) WITHOUT RETURN, WITH ARGUMENT
+--------------------------------
+
+1. Accept a number and print its square.  
+2. Accept a number and print whether it is even or odd.  
+3. Accept two numbers and print their sum.  
+4. Accept two numbers and print their product.  
+5. Accept a number and display its multiplication table.  
+6. Accept two numbers and print the greater one.  

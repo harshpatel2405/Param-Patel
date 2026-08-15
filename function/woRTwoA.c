@@ -9,10 +9,6 @@ int main()
     // * Function Calling
     greet();
     prime();
-    prime();
-    prime();
-    prime();
-    prime();
     return 0;
 }
 

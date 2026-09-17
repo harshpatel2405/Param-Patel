@@ -19,3 +19,37 @@
 4. Accept two numbers and print their product.  
 5. Accept a number and display its multiplication table.  
 6. Accept two numbers and print the greater one.  
+
+--------------------------------
+3) WITH RETURN, WITHOUT ARGUMENT
+--------------------------------
+
+1. Return a fixed number (like 10).  
+2. Return the current year (hardcoded).  
+3. Return sum of first 50 natural numbers.  
+4. Return the largest of three fixed numbers.  
+5. Return factorial of 5.  
+6. Generate and return a random number.  
+7. Return area of a circle with fixed radius.  
+8. Return whether a fixed number is palindrome or not.  
+9. Return sum of squares of first 10 numbers.  
+10. Return whether a fixed number is Armstrong number.  
+
+--------------------------------
+4) WITH RETURN, WITH ARGUMENT
+--------------------------------
+
+1. Return square of a given number.  
+2. Return cube of a given number.  
+3. Return maximum of two numbers.  
+4. Return minimum of two numbers.  
+5. Return whether a number is prime.  
+6. Return area of circle using radius.  
+7. Return sum of digits of a number.  
+8. Return length of a string.  
+
+--------------------------------
+5) COMBINED QUESTIONS
+--------------------------------
+1. Use one function to accept marks, another to calculate percentage, another to return grade, and finally display result.  
+2. Input an array, print it using one function, find sum using another, and return maximum using another.  

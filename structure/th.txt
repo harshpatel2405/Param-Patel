@@ -1,0 +1,20 @@
+Structure
+---------
+An User-Defined Datatype
+symbol : struct structure_name -- Datatype
+
+struct Students Param;
+struct Students Harsh;
+
+It supports all data types
+
+Primtive   Derived     User-defined 
+
+outside main function / any function 
+
+struct structure_name 
+{
+    int age;
+    double marks;
+    char name[30];
+};

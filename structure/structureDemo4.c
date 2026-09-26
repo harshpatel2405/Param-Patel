@@ -1,40 +1,52 @@
 #include <stdio.h>
-#define SIZE 2
-
-// const int size = 4; // * size cannot be updated
+#define SIZE 3
 
 struct Student
 {
-    int id;
+    int age;
     int rollNo;
-} stud[SIZE];
+    char name[30];
+    float marks;
+};
+
+struct Student stud[SIZE]; // * global variable
 
 void setData()
 {
     for (int i = 0; i < SIZE; i++)
     {
-        printf("Enter RollNo : ");
+        printf("\nStudent %d\n----------\n", i);
+        printf("Enter Age : ");
+        scanf("%d", &stud[i].age);
+
+        printf("Enter Roll Number : ");
         scanf("%d", &stud[i].rollNo);
-        printf("Enter ID : ");
-        scanf("%d", &stud[i].id);
+
+        printf("Enter marks : ");
+        scanf("%f", &stud[i].marks);
+
+        printf("Enter Name : ");
+        scanf(" %s", stud[i].name);
     }
 }
 
 void getData()
 {
+    printf("\n-----------------------\nAll Student Details\n---------------------\n");
+    printf("Name\tAge\tMarks\tRollNo\n----\t---\t-----\t-------\n");
     for (int i = 0; i < SIZE; i++)
     {
-        printf("ID : %d\n", stud[i].id);
-        printf("Roll Number : %d\n", stud[i].rollNo);
+        printf("%s\t%d\t%f\t%d\n", stud[i].name, stud[i].age, stud[i].marks, stud[i].rollNo);
     }
 }
 
 int main()
 {
+    // * adding 5 records together
     setData();
+
+    //* getting all the data
     getData();
+
     return 0;
 }
-
-// i need to add all data at once
-// i need to add data one by one

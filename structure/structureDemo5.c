@@ -109,6 +109,31 @@ void deleteStudent()
     }
 }
 
+void updateStudent()
+{
+    int rno;
+    printf("Enter Roll Number to be updated : ");
+    scanf("%d", &rno);
+
+    int index = searchStudent(rno);
+    if (index != -1)
+    {
+        printf("Enter Age : ");
+        scanf("%d", &stud[index].age);
+
+        printf("Enter marks : ");
+        scanf("%f", &stud[index].marks);
+
+        printf("Enter Name : ");
+        scanf(" %s", stud[index].name);
+        printf("Student updated successfully..\n\n");
+    }
+    else
+    {
+        printf("No Such Student Found\n\n");
+    }
+}
+
 int main()
 {
     int choice;
@@ -132,6 +157,8 @@ int main()
         case 2:
             displayAllStudents();
             break;
+        case 3:
+            updateStudent();
         case 4:
             deleteStudent();
             break;
@@ -163,3 +190,7 @@ int main()
 // 3. update student data
 // 4. delete student
 // 5. view single student/searching
+
+
+
+Question : ask four numbers from user and store it in array and print sum of those numbers

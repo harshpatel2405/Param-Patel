@@ -1,0 +1,28 @@
+File 
+----
+data storing
+
+mode 
+----
+r - read mode    -- file should exist 
+w - write mode   -- if file does not exist , it creates a new file (deletes previous data and add new) 
+a - append mode  -- if file does not exist , it creates a new file (add new data after old data)
+
+
+1. FILE *fp;
+2. fp = fopen("filename.txt","mode")
+
+Function                        Meaning
+fopen()                         Open a file
+fclose()                        Close a file
+fprintf()                       Write formatted text
+fputs()                         Write a string
+putc()                          Write one character
+fscanf()                        Read formatted text
+fgets()                         Read a line
+getc()                          Read one character
+fwrite()                        Write binary data
+fread()                         Read binary data
+ftell()                         Find the current file position
+fseek()                         Move the file position
+rewind()                        Return to the beginning

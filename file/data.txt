@@ -1,0 +1,4 @@
+Hello Students!
+Welcome to C File Handling.
+This is a new line.
+A

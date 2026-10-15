@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C Programming Practice Hub</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: #fff;
+        --ink: #182230;
+        --muted: #667085;
+        --line: #e6eaf0;
+        --brand: #6d4aff;
+        --brand2: #8b5cf6;
+        --soft: #f0ebff;
+        --green: #16845b;
+        --amber: #b86a08;
+        --red: #c2415d;
+        --shadow: 0 12px 32px rgba(24, 34, 48, 0.07);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          15px/1.55 Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Arial;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      .hero {
+        background:
+          radial-gradient(circle at 85% 20%, #a99aff 0, transparent 28%),
+          linear-gradient(125deg, #21134f, #5636c9 58%, #7655f7);
+        color: #fff;
+        padding: 38px max(22px, calc((100vw - 1200px) / 2)) 32px;
+      }
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 25px;
+      }
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: #ffffff20;
+        border: 1px solid #ffffff40;
+        font-size: 20px;
+      }
+      .pill {
+        border: 1px solid #ffffff55;
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-size: 12px;
+        color: #f1edff;
+      }
+      h1 {
+        font-size: clamp(30px, 4.4vw, 48px);
+        line-height: 1.08;
+        letter-spacing: -1.4px;
+        margin: 0 0 12px;
+        max-width: 720px;
+      }
+      .hero p {
+        margin: 0;
+        color: #e3ddff;
+        max-width: 650px;
+        font-size: 16px;
+      }
+      .hero-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 25px;
+      }
+      .hero-stat {
+        padding: 12px 16px;
+        border: 1px solid #ffffff30;
+        background: #ffffff12;
+        border-radius: 14px;
+        min-width: 120px;
+      }
+      .hero-stat strong {
+        display: block;
+        font-size: 22px;
+      }
+      .hero-stat span {
+        font-size: 12px;
+        color: #e4ddff;
+      }
+      main {
+        max-width: 1200px;
+        margin: 26px auto;
+        padding: 0 22px 50px;
+      }
+      .toolbar {
+        display: grid;
+        grid-template-columns: 1fr 220px 190px;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .field {
+        position: relative;
+      }
+      .field input,
+      .field select {
+        width: 100%;
+        height: 48px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 13px;
+        padding: 0 14px;
+        color: var(--ink);
+        outline: none;
+      }
+      .field input:focus,
+      .field select:focus {
+        border-color: #9b87ff;
+        box-shadow: 0 0 0 3px #6d4aff18;
+      }
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        color: var(--muted);
+      }
+      .field.search input {
+        padding-left: 42px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 20px;
+        align-items: start;
+      }
+      .sidebar,
+      .content-panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+      }
+      .sidebar {
+        padding: 16px;
+        position: sticky;
+        top: 14px;
+      }
+      .side-title {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        color: var(--muted);
+        margin: 3px 8px 10px;
+      }
+      .topic-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        border: 0;
+        background: transparent;
+        padding: 11px 10px;
+        border-radius: 12px;
+        text-align: left;
+        color: #465164;
+        margin: 2px 0;
+      }
+      .topic-btn:hover {
+        background: #f6f4ff;
+      }
+      .topic-btn.active {
+        background: var(--soft);
+        color: #4c31bd;
+        font-weight: 750;
+      }
+      .topic-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: #f2f4f8;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .topic-btn.active .topic-icon {
+        background: #ded5ff;
+      }
+      .topic-name {
+        flex: 1;
+      }
+      .count {
+        font-size: 11px;
+        color: var(--muted);
+        background: #f2f4f7;
+        padding: 3px 7px;
+        border-radius: 999px;
+      }
+      .topic-btn.active .count {
+        background: #fff;
+        color: #5b42c9;
+      }
+      .progress-box {
+        margin-top: 18px;
+        padding: 13px;
+        border-radius: 13px;
+        background: #f8f9fc;
+        border: 1px solid var(--line);
+      }
+      .progress-head {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .progress-head span {
+        color: var(--muted);
+      }
+      .progress-track {
+        height: 7px;
+        background: #e7e9f0;
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--brand), #b09aff);
+        border-radius: 99px;
+        transition: width 0.2s;
+      }
+      .reset {
+        border: 0;
+        background: none;
+        color: var(--muted);
+        font-size: 12px;
+        padding: 10px 0 0;
+      }
+      .content-panel {
+        padding: 22px;
+        min-height: 500px;
+      }
+      .content-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+      .eyebrow {
+        color: var(--brand);
+        font-size: 11px;
+        letter-spacing: 1.4px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .content-head h2 {
+        margin: 3px 0 5px;
+        font-size: 26px;
+        letter-spacing: -0.5px;
+      }
+      .content-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .view-toggle {
+        display: flex;
+        background: #f3f4f8;
+        border-radius: 11px;
+        padding: 4px;
+        gap: 3px;
+        flex-shrink: 0;
+      }
+      .view-toggle button {
+        border: 0;
+        background: transparent;
+        padding: 7px 10px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .view-toggle button.active {
+        background: #fff;
+        color: var(--ink);
+        box-shadow: 0 1px 4px #17203312;
+      }
+      .level-tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 17px;
+      }
+      .level-btn {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 999px;
+        padding: 8px 13px;
+        color: #515b6c;
+        font-size: 13px;
+      }
+      .level-btn.active {
+        border-color: #c7baff;
+        background: var(--soft);
+        color: #4c31bd;
+        font-weight: 750;
+      }
+      .level-btn .num {
+        margin-left: 6px;
+        font-size: 11px;
+        opacity: 0.7;
+      }
+      .results-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 12px;
+        gap: 10px;
+      }
+      .sort {
+        border: 0;
+        background: transparent;
+        color: #5c4ac4;
+        font-weight: 700;
+      }
+      .question-list {
+        display: grid;
+        gap: 10px;
+      }
+      .question {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 15px 16px;
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: start;
+        transition:
+          border-color 0.15s,
+          transform 0.15s;
+      }
+      .question:hover {
+        border-color: #c8baff;
+        transform: translateY(-1px);
+      }
+      .q-num {
+        height: 34px;
+        width: 34px;
+        border-radius: 10px;
+        background: #f2f4f8;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        font-size: 12px;
+        color: #566174;
+      }
+      .q-text {
+        padding-top: 3px;
+      }
+      .q-text p {
+        margin: 0;
+        font-weight: 550;
+      }
+      .q-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 9px;
+      }
+      .tag {
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #f4f5f8;
+        color: #697386;
+      }
+      .tag.simple {
+        background: #e7f7ef;
+        color: #13784f;
+      }
+      .tag.medium {
+        background: #fff2d9;
+        color: #9a5a05;
+      }
+      .tag.hard {
+        background: #ffe8ed;
+        color: #b42345;
+      }
+      .done-btn {
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 10px;
+        color: #a0a7b4;
+        font-size: 15px;
+      }
+      .done-btn.done {
+        background: #e5f7ee;
+        color: var(--green);
+        border-color: #b8e8cf;
+      }
+      .question.completed .q-text p {
+        text-decoration: line-through;
+        color: #7b8493;
+      }
+      .question.completed {
+        background: #fbfefc;
+      }
+      .empty {
+        padding: 55px 15px;
+        text-align: center;
+        color: var(--muted);
+      }
+      .empty strong {
+        display: block;
+        color: var(--ink);
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      .footer {
+        margin-top: 18px;
+        text-align: center;
+        color: #8a93a2;
+        font-size: 12px;
+      }
+      @media (max-width: 800px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: static;
+        }
+        .topic-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 3px;
+        }
+        .toolbar {
+          grid-template-columns: 1fr 1fr;
+        }
+        .field.search {
+          grid-column: 1/-1;
+        }
+        .content-head {
+          flex-direction: column;
+        }
+        .question {
+          grid-template-columns: 34px minmax(0, 1fr) 30px;
+          padding: 12px;
+          gap: 9px;
+        }
+      }
+      @media (max-width: 460px) {
+        main {
+          padding: 0 12px 30px;
+        }
+        .hero {
+          padding: 25px 18px;
+        }
+        .hero-stat {
+          min-width: calc(50% - 8px);
+        }
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+        .field.search {
+          grid-column: auto;
+        }
+        .content-panel {
+          padding: 15px;
+        }
+        .topic-grid {
+          grid-template-columns: 1fr;
+        }
+        .question {
+          grid-template-columns: 30px minmax(0, 1fr) 28px;
+        }
+        .q-num {
+          width: 29px;
+          height: 30px;
+        }
+        .content-head h2 {
+          font-size: 23px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="topline">
+        <div class="brand"><span class="logo">⌘</span> C Practice Hub</div>
+        <span class="pill">STUDENT WORKSPACE · 180 QUESTIONS</span>
+      </div>
+      <h1>Build your C programming skills, one problem at a time.</h1>
+      <p>
+        A structured practice library from fundamentals to problem-solving.
+        Choose a topic, select a difficulty, and track your progress as you go.
+      </p>
+      <div class="hero-bottom">
+        <div class="hero-stat"><strong>6</strong><span>Core topics</span></div>
+        <div class="hero-stat">
+          <strong>3</strong><span>Difficulty levels</span>
+        </div>
+        <div class="hero-stat">
+          <strong id="heroDone">0 / 180</strong><span>Questions completed</span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="toolbar">
+        <div class="field search">
+          <span class="search-icon">⌕</span
+          ><input
+            id="searchInput"
+            type="search"
+            placeholder="Search questions, e.g. prime, array, student..."
+            aria-label="Search questions"
+          />
+        </div>
+        <div class="field">
+          <select id="difficultySelect" aria-label="Filter by difficulty">
+            <option value="all">All difficulty levels</option>
+            <option value="Simple">Simple</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard / Complex">Hard / Complex</option>
+          </select>
+        </div>
+        <div class="field">
+          <select id="statusSelect" aria-label="Filter by completion">
+            <option value="all">All questions</option>
+            <option value="todo">Not completed</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+      </div>
+      <div class="layout">
+        <aside class="sidebar">
+          <div class="side-title">LEARNING PATH</div>
+          <div id="topicList" class="topic-grid"></div>
+          <div class="progress-box">
+            <div class="progress-head">
+              <strong>Your progress</strong><span id="progressText">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <button class="reset" id="resetProgress">
+              ↺ Reset completion progress
+            </button>
+          </div>
+        </aside>
+        <section class="content-panel">
+          <div class="content-head">
+            <div>
+              <div class="eyebrow" id="topicEyebrow">TOPIC 01</div>
+              <h2 id="topicTitle">Conditionals in C</h2>
+              <p id="topicDescription">
+                Make decisions with conditions and logical operators.
+              </p>
+            </div>
+            <div class="view-toggle">
+              <button class="active" id="allView">All</button
+              ><button id="pendingView">To do</button>
+            </div>
+          </div>
+          <div class="level-tabs" id="levelTabs"></div>
+          <div class="results-line">
+            <span id="resultCount">30 questions</span
+            ><button class="sort" id="sortBtn">Sort: original order ↕</button>
+          </div>
+          <div class="question-list" id="questionList"></div>
+          <div class="footer">
+            Tip: write the algorithm first, dry-run with sample inputs, then
+            code and test edge cases.
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      const topics = [
+        {
+          name: "Conditionals in C",
+          icon: "⑂",
+          desc: "Make decisions with conditions, comparisons, and logical operators.",
+          levels: {
+            Simple: [
+              "Check whether a number is positive, negative, or zero.",
+              "Check whether a number is even or odd.",
+              "Check whether a person is eligible to vote (age 18 or above).",
+              "Find the greater of two numbers.",
+              "Find the greatest of three numbers.",
+              "Check whether a year is a leap year.",
+              "Check whether a character is a vowel or consonant.",
+              "Check whether a number is divisible by 5.",
+              "Check whether a student has passed or failed (passing marks: 35).",
+              "Create a calculator using switch for addition, subtraction, multiplication, and division.",
+            ],
+            Medium: [
+              "Find the greatest of four numbers using conditional statements.",
+              "Calculate a student's grade: A (90+), B (75–89), C (60–74), D (35–59), F (below 35).",
+              "Classify a character as uppercase, lowercase, digit, or special character.",
+              "Check whether a number is divisible by both 3 and 5, only one of them, or neither.",
+              "Calculate an electricity bill: first 100 units at ₹2/unit, next 100 at ₹3/unit, remaining at ₹5/unit.",
+              "Check whether three angles can form a valid triangle.",
+              "Classify a triangle as equilateral, isosceles, or scalene using its sides.",
+              "Calculate an employee bonus: 20% for service above 10 years, 10% for 5–10 years, and 5% otherwise.",
+              "Calculate income tax progressively: up to ₹3,00,000 no tax; next ₹3,00,000 at 5%; next ₹4,00,000 at 10%; above ₹10,00,000 at 20%.",
+              "Build a menu-driven switch calculator with modulus and division-by-zero validation.",
+            ],
+            "Hard / Complex": [
+              "Find the second-largest of three distinct numbers without using arrays.",
+              "Validate a date (day, month, year), considering leap years.",
+              "Calculate a shopping bill: 10% discount above ₹5,000, 20% above ₹10,000, plus an additional 5% for premium customers.",
+              "Determine the roots of a quadratic equation and classify them as distinct real, equal real, or complex.",
+              "Determine the number of days in a month for a given month and year; reject invalid inputs.",
+              "Calculate parking fees: first 2 hours ₹30/hour, next 3 hours ₹20/hour, each additional hour ₹10/hour; add 25% surcharge above 12 hours.",
+              "Validate a 24-hour time and classify it as morning, afternoon, evening, or night.",
+              "Determine a student's result for five subjects: at least 35 in every subject and 40% overall to pass; assign a grade by percentage.",
+              "Calculate a mobile bill using rental, call charges, SMS charges, and tax on the subtotal.",
+              "Build a menu-driven banking system with deposit, withdrawal, balance enquiry, and minimum-balance validation.",
+            ],
+          },
+        },
+        {
+          name: "Loops in C",
+          icon: "↻",
+          desc: "Practise repetition, counters, accumulators, and number logic.",
+          levels: {
+            Simple: [
+              "Print numbers from 1 to 10 using a for loop.",
+              "Print numbers from 10 to 1 using a while loop.",
+              "Print all even numbers between 1 and 100.",
+              "Print all odd numbers between 1 and 50.",
+              "Find the sum of numbers from 1 to n.",
+              "Print the multiplication table of a given number.",
+              "Count the number of digits in an integer.",
+              "Find the sum of the digits of a number.",
+              "Reverse a given integer.",
+              "Calculate the factorial of a number.",
+            ],
+            Medium: [
+              "Check whether a number is prime.",
+              "Print all prime numbers between 1 and n.",
+              "Check whether a number is a palindrome.",
+              "Check whether a number is an Armstrong number.",
+              "Print the Fibonacci series for n terms.",
+              "Find the GCD (HCF) and LCM of two numbers using loops.",
+              "Find the power of a number without using pow().",
+              "Count the even and odd digits in a number.",
+              "Find the product of all digits of a number.",
+              "Print all numbers between 1 and n divisible by both 3 and 7.",
+            ],
+            "Hard / Complex": [
+              "Print all Armstrong numbers between 1 and n, supporting any number of digits.",
+              "Check whether a number is a strong number (sum of digit factorials equals the number).",
+              "Print all perfect numbers within a given range.",
+              "Find the prime factorization of a positive integer.",
+              "Check whether a number is a Harshad number (divisible by the sum of its digits).",
+              "Find the smallest positive integer divisible by every integer from 1 to n.",
+              "Print all pairs of prime numbers in a range whose difference is 2.",
+              "Convert decimal to binary without arrays or built-in conversion functions.",
+              "Find the sum of the series 1 + 1/2 + 1/3 + … + 1/n.",
+              "Create a number-guessing game with a maximum of 7 attempts and higher/lower hints.",
+            ],
+          },
+        },
+        {
+          name: "Nested Loops",
+          icon: "▦",
+          desc: "Explore patterns and learn to control multiple levels of iteration.",
+          levels: {
+            Simple: [
+              "Print a solid square of stars for a given size.",
+              "Print a right-angled triangle of stars.",
+              "Print an inverted right-angled triangle of stars.",
+              "Print a square number pattern where each row contains its row number.",
+              "Print the pattern: 1 / 1 2 / 1 2 3 / 1 2 3 4.",
+              "Print four rows containing 1 1 1 1, 2 2 2 2, 3 3 3 3, and 4 4 4 4.",
+              "Print a right-aligned triangle of stars.",
+              "Print a triangle with the same number repeated in each row.",
+              "Print multiplication tables from 1 to 5 using nested loops.",
+              "Print a rectangular star pattern with user-defined rows and columns.",
+            ],
+            Medium: [
+              "Print Floyd's triangle.",
+              "Print an inverted number triangle: 1 2 3 4, then 1 2 3, then 1 2, then 1.",
+              "Print a pyramid of stars.",
+              "Print a hollow square of stars.",
+              "Print a diamond pattern of stars.",
+              "Print a number triangle containing consecutive numbers: 1; 2 3; 4 5 6; 7 8 9 10.",
+              "Print multiplication tables from 1 to 10 in a formatted grid.",
+              "Print a triangle where each row contains consecutive numbers starting from 1.",
+              "Print a hollow right-angled triangle of stars.",
+              "Print a checkerboard pattern using * and # alternately.",
+            ],
+            "Hard / Complex": [
+              "Print Pascal's triangle for n rows without arrays.",
+              "Print a butterfly star pattern with expanding and contracting wings.",
+              "Print a numeric diamond that increases toward the middle and decreases afterward.",
+              "Print a hollow diamond pattern using stars.",
+              "Print a numeric palindrome pyramid (for example, 1 / 121 / 12321 / 1234321).",
+              "Print a spiral pattern of numbers in an n × n grid; use a 2D array if needed.",
+              "Print a concentric square number pattern. For n = 3, outer ring is 3, next ring 2, centre 1.",
+              "Print an hourglass star pattern with a user-defined odd height.",
+              "Print a hollow pyramid joined to a hollow inverted pyramid.",
+              "Generate multiplication tables from 1 to n, displaying only cells whose product is prime.",
+            ],
+          },
+        },
+        {
+          name: "Arrays in C",
+          icon: "▤",
+          desc: "Store collections of values, then search, sort, and transform them.",
+          levels: {
+            Simple: [
+              "Read and display 10 integers using an array.",
+              "Find the sum of all elements in an array.",
+              "Find the average of array elements.",
+              "Find the largest element in an array.",
+              "Find the smallest element in an array.",
+              "Count even and odd elements in an array.",
+              "Search for an element using linear search.",
+              "Reverse an array.",
+              "Copy one array into another.",
+              "Count positive, negative, and zero elements in an array.",
+            ],
+            Medium: [
+              "Find the second-largest element in an array.",
+              "Sort an array in ascending order using bubble sort.",
+              "Sort an array in descending order.",
+              "Remove duplicate elements from an array.",
+              "Count the frequency of each element in an array.",
+              "Merge two arrays into a third array.",
+              "Insert an element at a specified array position.",
+              "Delete an element from a specified array position.",
+              "Perform binary search on a sorted array.",
+              "Rotate an array left by one position and right by one position.",
+            ],
+            "Hard / Complex": [
+              "Find the third-largest distinct element without sorting the array.",
+              "Find all pairs of elements whose sum equals a target.",
+              "Find the missing number in distinct values from 1 to n, with one number missing.",
+              "Move all zeros to the end while preserving nonzero order.",
+              "Find the maximum sum of a contiguous subarray.",
+              "Find intersection and union of two arrays without duplicate result values.",
+              "Rotate an array by k positions in either direction.",
+              "Find the longest consecutive sequence in an unsorted array.",
+              "Find the majority element appearing more than n/2 times, if one exists.",
+              "Find the pair of elements with the minimum absolute difference.",
+            ],
+          },
+        },
+        {
+          name: "Functions in C",
+          icon: "ƒ",
+          desc: "Write reusable programs with parameters, return values, pointers, and recursion.",
+          levels: {
+            Simple: [
+              "Write a function to print “Hello, World!”.",
+              "Write a function that accepts two integers and returns their sum.",
+              "Write a function to check whether a number is even or odd.",
+              "Write a function to find the square of a number.",
+              "Write a function to find the maximum of two numbers.",
+              "Write a function to calculate factorial using a loop.",
+              "Write a function to calculate the area of a circle.",
+              "Write a function to convert Celsius to Fahrenheit.",
+              "Write a function to classify a number as positive, negative, or zero.",
+              "Write a function to print a multiplication table.",
+            ],
+            Medium: [
+              "Write a function to check whether a number is prime.",
+              "Write a function to return the reverse of an integer.",
+              "Write a function to check whether a number is a palindrome.",
+              "Write a GCD function and a separate LCM function.",
+              "Write a recursive function to calculate factorial.",
+              "Write a recursive function to generate the nth Fibonacci number.",
+              "Write a function that accepts an array and returns its largest element.",
+              "Write a function to sort an array in ascending order.",
+              "Write a function to swap two integers using pointers.",
+              "Create a menu-driven calculator with separate functions for addition, subtraction, multiplication, and division.",
+            ],
+            "Hard / Complex": [
+              "Write a recursive function to calculate the sum of digits of an integer.",
+              "Write a recursive function to calculate a^b without pow().",
+              "Write a recursive function to check whether a string is a palindrome.",
+              "Write a function that accepts an array and returns the second-largest distinct element.",
+              "Create separate functions for matrix addition, subtraction, and multiplication.",
+              "Write a recursive function to solve Tower of Hanoi for n disks.",
+              "Implement binary search using recursion.",
+              "Write a function to determine whether an array is sorted in ascending order.",
+              "Create a student result system with functions to input marks, calculate percentage, assign grades, and display results.",
+              "Build a banking program with deposit, withdrawal, balance enquiry, and transaction history functions; use pointers to update balance.",
+            ],
+          },
+        },
+        {
+          name: "Structures in C",
+          icon: "▣",
+          desc: "Group related data and build small record-management systems.",
+          levels: {
+            Simple: [
+              "Create a Student structure with id, name, and marks; input and display one student.",
+              "Create an Employee structure with id, name, and salary; display the details.",
+              "Create a Book structure with title, author, and price; input and display it.",
+              "Create a Rectangle structure with length and width; calculate area.",
+              "Create a Date structure with day, month, and year; display a date.",
+              "Create a Product structure with id, name, and price; calculate price after a 10% discount.",
+              "Create a Time structure with hours, minutes, and seconds; display it.",
+              "Create a Complex structure with real and imaginary parts; display a complex number.",
+              "Create a Car structure with brand, model, and price; display its information.",
+              "Create a BankAccount structure with accountNumber, holderName, and balance; display details.",
+            ],
+            Medium: [
+              "Store and display five students using an array of structures.",
+              "Store five employees and find the employee with the highest salary.",
+              "Store five books and display only books costing more than ₹500.",
+              "Store five students and calculate their average marks.",
+              "Store five products and search by product ID.",
+              "Store five employees and sort them by salary.",
+              "Create a Date structure and compare two dates to determine which comes first.",
+              "Create a Complex structure and a function to add two complex numbers.",
+              "Create a BankAccount structure and implement deposit and withdrawal.",
+              "Create a Student structure with marks in three subjects; calculate total, percentage, and grade.",
+            ],
+            "Hard / Complex": [
+              "Create a student management system using an array of structures with add, display, search, update, and delete operations.",
+              "Create an employee management system that sorts by salary and searches by ID.",
+              "Create a library management system with book add, search, issue, return, and display operations.",
+              "Create a banking system using an array of account structures with deposits, withdrawals, balance enquiries, and searches.",
+              "Create Date functions to validate dates, compare dates, and calculate days between two dates.",
+              "Create a Time structure function to add two times and handle seconds/minutes overflow.",
+              "Create an InventoryItem structure with ID, name, quantity, and price; implement stock updates, sales, low-stock alerts, and inventory valuation.",
+              "Create a Student structure containing a nested Address structure with street, city, and PIN code.",
+              "Create a Transaction structure with ID, type, amount, and date; store multiple transactions and calculate balance and total deposits.",
+              "Create a mini payroll system using employee structures; calculate gross salary, deductions, and net salary, then sort by net salary.",
+            ],
+          },
+        },
+      ];
+      const topicIcons = ["⑂", "↻", "▦", "▤", "ƒ", "▣"];
+      let activeTopic = 0,
+        activeLevel = "All",
+        sortReverse = false,
+        showTodo = false;
+      const completed = new Set();
+      const topicList = document.getElementById("topicList"),
+        levelTabs = document.getElementById("levelTabs");
+      const questionList = document.getElementById("questionList");
+      const searchInput = document.getElementById("searchInput"),
+        difficultySelect = document.getElementById("difficultySelect"),
+        statusSelect = document.getElementById("statusSelect");
+      const allLevels = ["Simple", "Medium", "Hard / Complex"];
+      function allQuestions() {
+        let arr = [];
+        topics.forEach((t, ti) =>
+          allLevels.forEach((level) =>
+            t.levels[level].forEach((q, qi) =>
+              arr.push({
+                id: `${ti}-${level}-${qi}`,
+                topic: ti,
+                level,
+                num: qi + 1,
+                text: q,
+              }),
+            ),
+          ),
+        );
+        return arr;
+      }
+      const questionTotal = allQuestions().length;
+      function renderTopics() {
+        topicList.innerHTML = topics
+          .map(
+            (t, i) =>
+              `<button class="topic-btn ${i === activeTopic ? "active" : ""}" data-topic="${i}"><span class="topic-icon">${topicIcons[i]}</span><span class="topic-name">${t.name}</span><span class="count">30</span></button>`,
+          )
+          .join("");
+        topicList.querySelectorAll("button").forEach(
+          (b) =>
+            (b.onclick = () => {
+              activeTopic = +b.dataset.topic;
+              activeLevel = "All";
+              difficultySelect.value = "all";
+              render();
+            }),
+        );
+      }
+      function renderLevels() {
+        let counts = { All: 30, Simple: 10, Medium: 10, "Hard / Complex": 10 };
+        levelTabs.innerHTML = ["All", ...allLevels]
+          .map(
+            (l) =>
+              `<button class="level-btn ${activeLevel === l ? "active" : ""}" data-level="${l}">${l}<span class="num">${counts[l]}</span></button>`,
+          )
+          .join("");
+        levelTabs.querySelectorAll("button").forEach(
+          (b) =>
+            (b.onclick = () => {
+              activeLevel = b.dataset.level;
+              difficultySelect.value =
+                activeLevel === "All" ? "all" : activeLevel;
+              render();
+            }),
+        );
+      }
+      function updateProgress() {
+        const n = completed.size,
+          p = Math.round((n / questionTotal) * 100);
+        document.getElementById("heroDone").textContent =
+          `${n} / ${questionTotal}`;
+        document.getElementById("progressText").textContent = p + "%";
+        document.getElementById("progressFill").style.width = p + "%";
+      }
+      function renderQuestions() {
+        const topic = topics[activeTopic];
+        const term = searchInput.value.trim().toLowerCase();
+        let qs = allQuestions().filter((q) => q.topic === activeTopic);
+        const diff = difficultySelect.value;
+        if (diff !== "all") qs = qs.filter((q) => q.level === diff);
+        if (activeLevel !== "All")
+          qs = qs.filter((q) => q.level === activeLevel);
+        if (term)
+          qs = qs.filter(
+            (q) =>
+              q.text.toLowerCase().includes(term) ||
+              topic.name.toLowerCase().includes(term),
+          );
+        const status = statusSelect.value;
+        if (status === "done") qs = qs.filter((q) => completed.has(q.id));
+        if (status === "todo" || showTodo)
+          qs = qs.filter((q) => !completed.has(q.id));
+        if (sortReverse) qs.reverse();
+        document.getElementById("resultCount").textContent =
+          `${qs.length} question${qs.length === 1 ? "" : "s"} shown`;
+        if (!qs.length) {
+          questionList.innerHTML =
+            '<div class="empty"><strong>No questions found</strong>Try another search term or filter.</div>';
+          return;
+        }
+        questionList.innerHTML = qs
+          .map(
+            (q) =>
+              `<article class="question ${completed.has(q.id) ? "completed" : ""}"><div class="q-num">${String(q.num).padStart(2, "0")}</div><div class="q-text"><p>${escapeHtml(q.text)}</p><div class="q-meta"><span class="tag ${q.level === "Simple" ? "simple" : q.level === "Medium" ? "medium" : "hard"}">${q.level}</span><span class="tag">${topic.name}</span></div></div><button class="done-btn ${completed.has(q.id) ? "done" : ""}" data-id="${q.id}" title="${completed.has(q.id) ? "Mark as not completed" : "Mark as completed"}" aria-label="Toggle completion">${completed.has(q.id) ? "✓" : "○"}</button></article>`,
+          )
+          .join("");
+        questionList.querySelectorAll(".done-btn").forEach(
+          (b) =>
+            (b.onclick = () => {
+              completed.has(b.dataset.id)
+                ? completed.delete(b.dataset.id)
+                : completed.add(b.dataset.id);
+              updateProgress();
+              renderQuestions();
+            }),
+        );
+      }
+      function escapeHtml(s) {
+        return s.replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+      function render() {
+        renderTopics();
+        renderLevels();
+        const t = topics[activeTopic];
+        document.getElementById("topicEyebrow").textContent =
+          `TOPIC ${String(activeTopic + 1).padStart(2, "0")} · 30 QUESTIONS`;
+        document.getElementById("topicTitle").textContent = t.name;
+        document.getElementById("topicDescription").textContent = t.desc;
+        renderQuestions();
+        updateProgress();
+      }
+      searchInput.addEventListener("input", renderQuestions);
+      difficultySelect.addEventListener("change", () => {
+        activeLevel = "All";
+        renderLevels();
+        renderQuestions();
+      });
+      statusSelect.addEventListener("change", renderQuestions);
+      document.getElementById("allView").onclick = () => {
+        showTodo = false;
+        document.getElementById("allView").classList.add("active");
+        document.getElementById("pendingView").classList.remove("active");
+        statusSelect.value = "all";
+        renderQuestions();
+      };
+      document.getElementById("pendingView").onclick = () => {
+        showTodo = true;
+        document.getElementById("pendingView").classList.add("active");
+        document.getElementById("allView").classList.remove("active");
+        statusSelect.value = "todo";
+        renderQuestions();
+      };
+      document.getElementById("sortBtn").onclick = () => {
+        sortReverse = !sortReverse;
+        document.getElementById("sortBtn").textContent = sortReverse
+          ? "Sort: reverse order ↕"
+          : "Sort: original order ↕";
+        renderQuestions();
+      };
+      document.getElementById("resetProgress").onclick = () => {
+        if (confirm("Reset completion status for all questions?")) {
+          completed.clear();
+          updateProgress();
+          renderQuestions();
+        }
+      };
+      render();
+    </script>
+  </body>
+</html>

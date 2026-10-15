@@ -1,0 +1,9 @@
+Dyanamic Memory Allocation
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+memory management 
+
+
+malloc  -- memory allocate -- not initialized -- garbage value
+calloc  -- memory allocate -- intialized - 0
+realloc -- changing size of already allocated memory 
+free    -- free not required memory
